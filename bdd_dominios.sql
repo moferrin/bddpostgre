@@ -46,3 +46,13 @@ CREATE DOMAIN proy_concesionaria.d_direccion
     AS character varying(100);
 
 ALTER DOMAIN proy_concesionaria.d_direccion OWNER TO postgres;
+
+--para telefono
+CREATE DOMAIN proy_concesionaria.d_telefono
+    AS character(10);
+
+ALTER DOMAIN proy_concesionaria.d_telefono OWNER TO postgres;
+
+ALTER DOMAIN proy_concesionaria.d_telefono
+    ADD CONSTRAINT d_telefono_check CHECK ((value ~ '^[0-9]{10}$'));
+
