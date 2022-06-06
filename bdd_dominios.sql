@@ -56,3 +56,13 @@ ALTER DOMAIN proy_concesionaria.d_telefono OWNER TO postgres;
 ALTER DOMAIN proy_concesionaria.d_telefono
     ADD CONSTRAINT d_telefono_check CHECK ((value ~ '^[0-9]{10}$'));
 
+--para fechas
+CREATE DOMAIN proy_concesionaria.d_fecha
+    AS date
+    DEFAULT current_date
+    NOT NULL;
+
+ALTER DOMAIN proy_concesionaria.d_fecha OWNER TO postgres;
+
+ALTER DOMAIN proy_concesionaria.d_fecha
+    ADD CONSTRAINT d_fecha_check CHECK (value <= current_date);
