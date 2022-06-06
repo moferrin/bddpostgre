@@ -31,3 +31,12 @@ ALTER DOMAIN proy_concesionaria.d_nomb_ape OWNER TO postgres;
 ALTER DOMAIN proy_concesionaria.d_nomb_ape
     ADD CONSTRAINT d_nomb_ape_check CHECK (VALUE::text !~ '\s'::text);
 
+--para numero de telefono
+CREATE DOMAIN proy_concesionaria.d_cedula
+    AS character varying(10)
+    NOT NULL;
+
+ALTER DOMAIN proy_concesionaria.d_cedula OWNER TO postgres;
+
+ALTER DOMAIN proy_concesionaria.d_cedula
+    ADD CONSTRAINT d_cedula_check CHECK (value ~ '[0-9] [0-9] [0-9] [0-9] [0-9] [0-9] [0-9] [0-9] [0-9] [0-9]');
